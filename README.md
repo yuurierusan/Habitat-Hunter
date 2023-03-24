@@ -29,13 +29,13 @@
 
 ##### The Deployed Website can be viewed [here](TBA).
 
-##### The Entity Relationship Diagram can be viewed [here](TBA).
+##### The Entity Relationship Diagram can be viewed [here](https://lucid.app/lucidchart/7060c512-b912-42d3-98b6-ec6ac3defdba/edit?viewport_loc=-65%2C-227%2C1908%2C1893%2CnXBIu--D.f_n&invitationId=inv_fb85c6eb-7b60-450b-8db3-70b8b6edafdf).
 
 ##### A Trello board was used to keep track of development progress and can be viewed [here](TBA).
 
-##### The front-end directory [here](TBA).
+##### The front-end repo [here](https://github.com/yuurierusan/Habitat-Hunter).
 
-##### The api directory [here](TBA).
+##### The api rep [here](https://github.com/yuurierusan/Habitat-Hunter-API).
 
 ---
 
