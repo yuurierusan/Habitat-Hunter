@@ -5,10 +5,10 @@ import { AiOutlineUser } from 'react-icons/ai'
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between items-center border-b'>
+        <div className='bg-yellow-300 flex justify-between items-center border-b h-[64px]'>
             {/* left */}
-            <div className='h-20 flex'>
-                <img src={logo} className='object-cover -my-10' />
+            <div className='bg-red-300 h-full flex items-center'>
+                <img src={logo} className='object-contain -my-10 h-20' />
             </div>
             {/* middle */}
             <div className='flex justify-center items-center relative shadow-sm shadow-gray-400 border rounded-full outline-0'>
@@ -22,8 +22,8 @@ const Navbar = () => {
                     <button>State</button>
                     <button>Family Size</button>
                 </div>
-                <div className='bg-[#faa856e9]'>
-                    <FiSearch />
+                <div className='bg-[#ff385c] h-[32px] w-[32px] rounded-2xl items-center flex justify-center'>
+                    <FiSearch className=' text-white' />
                 </div>
             </div>
             {/* right */}
