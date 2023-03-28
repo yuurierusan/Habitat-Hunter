@@ -18,8 +18,8 @@ const Navbar = () => {
                     className='py-2.5 w-[20rem] rounded-full'
                 />
                 <div className='absolute'>
-                    <button>Place</button>
-                    <button>Time</button>
+                    <button>City</button>
+                    <button>State</button>
                     <button>Family Size</button>
                 </div>
                 <div className='bg-[#faa856e9]'>
