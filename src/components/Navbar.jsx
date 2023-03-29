@@ -1,13 +1,13 @@
 import logo from '../assets/logo.png'
 import { FiMenu, FiSearch } from 'react-icons/fi'
-import { BiWorld } from 'react-icons/bi'
 import { AiOutlineUser } from 'react-icons/ai'
+import { CgDarkMode } from 'react-icons/cg'
 
 const Navbar = () => {
     return (
-        <div className='bg-yellow-300 flex justify-between items-center border-b h-[64px]'>
+        <div className='flex justify-between items-center border-b h-[64px]'>
             {/* left */}
-            <div className='bg-red-300 h-full flex items-center'>
+            <div className='h-full flex items-center'>
                 <img src={logo} className='object-contain -my-10 h-20' />
             </div>
             {/* middle */}
@@ -17,22 +17,26 @@ const Navbar = () => {
                     placeholder=''
                     className='py-2.5 w-[20rem] rounded-full'
                 />
-                <div className='absolute'>
-                    <button>City</button>
-                    <button>State</button>
-                    <button>Family Size</button>
+                <div className='flex justify-between absolute w-full pr-16 pl-6 font-semibold text-gray-500'>
+                    <button className='w-full '>City</button>
+                    <button className='border-l border-x px-6 '>State</button>
+                    <button className='w-full pl-4 text-gray-600/60'>
+                        Family Size
+                    </button>
                 </div>
-                <div className='bg-[#ff385c] h-[32px] w-[32px] rounded-2xl items-center flex justify-center'>
-                    <FiSearch className=' text-white' />
+                <div className='bg-[#ff9838] p-2 rounded-full mr-2'>
+                    <FiSearch className=' text-white w-full' />
                 </div>
             </div>
             {/* right */}
-            <div className='flex items-center pr-3'>
-                <p>Buy Home</p>
-                <BiWorld />
-                <div className='flex items-center'>
-                    <FiMenu />
-                    <AiOutlineUser />
+            <div className='flex items-center pr-3 font-semibold text-gray-600'>
+                <p className='text-[17px]'>I'm Home</p>
+                <div className='flex items-center mx-4 gap-1'>
+                    <CgDarkMode className='' />
+                </div>
+                <div className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-[#ff5a60] text-white font-bold hover:bg-[#fc8c90] duration-100 ease-in-out'>
+                    <FiMenu className='text-[19px]' />
+                    <AiOutlineUser className='text-[22px]' />
                 </div>
             </div>
         </div>
