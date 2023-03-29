@@ -11,7 +11,7 @@ const Navbar = () => {
                 <img src={logo} className='object-contain -my-10 h-20' />
             </div>
             {/* middle */}
-            <div className='flex justify-center items-center relative shadow-sm shadow-gray-400 border rounded-full outline-0'>
+            <div className='flex lg:flex justify-center items-center relative shadow-sm shadow-gray-400 border rounded-full outline-0'>
                 <input
                     type='search'
                     placeholder=''
@@ -24,7 +24,7 @@ const Navbar = () => {
                         Family Size
                     </button>
                 </div>
-                <div className='bg-[#ff9838] p-2 rounded-full mr-2'>
+                <div className='bg-[#ff5a60] p-2 rounded-full mr-2 cursor-pointer'>
                     <FiSearch className=' text-white w-full' />
                 </div>
             </div>
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <div className='flex items-center mx-4 gap-1'>
                     <CgDarkMode className='' />
                 </div>
-                <div className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-[#ff5a60] text-white font-bold hover:bg-[#fc8c90] duration-100 ease-in-out'>
+                <div className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-[#ff5a60] text-white font-bold hover:bg-[#fc8c90] duration-100 ease-in-out cursor-pointer'>
                     <FiMenu className='text-[19px]' />
                     <AiOutlineUser className='text-[22px]' />
                 </div>
