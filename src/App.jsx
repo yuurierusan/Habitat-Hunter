@@ -1,14 +1,14 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Listing from './Listing'
+import Listings from './components/Listings'
 
 export default function App() {
     return (
         <div>
             <Navbar />
             <div>
-                <Listing />
+                <Listings />
             </div>
             <Footer />
         </div>
