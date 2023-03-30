@@ -6,11 +6,9 @@ import { CgDarkMode } from 'react-icons/cg'
 const Navbar = () => {
     return (
         <div className='flex justify-between items-center border-b h-[64px]'>
-            {/* left */}
             <div className='h-full flex items-center'>
                 <img src={logo} className='object-contain -my-10 h-20' />
             </div>
-            {/* middle */}
             <div className='flex lg:flex justify-center items-center relative shadow-sm shadow-gray-400 border rounded-full outline-0'>
                 <input
                     type='search'
@@ -28,7 +26,6 @@ const Navbar = () => {
                     <FiSearch className=' text-white w-full' />
                 </div>
             </div>
-            {/* right */}
             <div className='flex items-center pr-3 font-semibold text-gray-600'>
                 <p className='text-[17px]'>I'm Home</p>
                 <div className='flex items-center mx-4 gap-1'>
