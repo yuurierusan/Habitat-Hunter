@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/HabitatHunter.png'
 import { FiMenu, FiSearch } from 'react-icons/fi'
 import { AiOutlineUser } from 'react-icons/ai'
 import { CgDarkMode } from 'react-icons/cg'
