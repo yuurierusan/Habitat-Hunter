@@ -1,6 +1,6 @@
-const Login = (props) => {
-    return props.trigger ? (
-        <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100'>
+const Login = ({ togglepopup }) => {
+    return (
+        <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[25%] absolute'>
             <h1 className='text-5xl font-semibold'>Welcome Back</h1>
             <p className='font-medium text-lg text-gray-500 mt-4'>
                 Please login to your account.
@@ -26,16 +26,18 @@ const Login = (props) => {
                         <input type='checkbox' id='remember' />
                         <label
                             className='ml-2 font-medium text-base'
-                            for='remember'>
+                            htmlFor='remember'>
                             Remember Me
                         </label>
                     </div>
-                    <button className='font-medium text-base text-[#ff5a60]'>
+                    <button className='font-medium text-base text-red-600'>
                         Forgot password
                     </button>
                 </div>
                 <div className='mt-8 flex flex-col gap-y-4'>
-                    <button className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-[#ff5a60] rounded-xl text-white font-bold text-lg'>
+                    <button
+                        onClick={() => togglepopup()}
+                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-red-600 rounded-xl text-white font-bold text-lg'>
                         Sign in
                     </button>
                 </div>
@@ -43,16 +45,12 @@ const Login = (props) => {
                     <p className='font-medium text-base'>
                         Don't have an account?
                     </p>
-                    <button
-                        onClick={() => setAuthState('register')}
-                        className='ml-2 font-medium text-base text-[#ff5a60]'>
+                    <button className='ml-2 font-medium text-base text-red-600'>
                         Sign up
                     </button>
                 </div>
             </div>
         </div>
-    ) : (
-        ''
     )
 }
 export default Login
