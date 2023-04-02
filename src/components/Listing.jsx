@@ -1,8 +1,8 @@
 import { BsStarFill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Client from '../services/api'
 
-const Listing = ({ image, title, price }) => {
+const Listing = ({ image, title, price, creation_date }) => {
     const handleDelete = async (title) => {
         await Client.delete(`/listings/delete/${title}`)
     }
@@ -26,10 +26,10 @@ const Listing = ({ image, title, price }) => {
             <div className='pt-3 flex justify-between items-start'>
                 <div>
                     <p className='max-w-[17rem] font-semibold text-[17px]'>
-                        This is a rare find
+                        {title}
                     </p>
                     <p className='max-w-[17rem]  text-[16px] -mt-1 text-gray-500'>
-                        Jan 28 - Aug 9
+                        {creation_date}
                     </p>
                     <p className='max-w-[17rem] font-semibold text-[17px]'>
                         ${price}

@@ -1,6 +1,19 @@
 import Listing from './Listing'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { BASE_URL } from '../services/api'
 
 const Listings = () => {
+    const [listings, setListings] = useState([])
+    const getListings = async () => {
+        const res = await axios.get(`${BASE_URL}/listings`)
+        console.log(res)
+        setListings(res.data)
+    }
+    useEffect(() => {
+        getListings()
+    }, [])
+
     return (
         <div className='py-3 sm:py-5'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
