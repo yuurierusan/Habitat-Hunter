@@ -1,9 +1,14 @@
 import { BsStarFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import Client from '../services/api'
 
 const Listing = ({ image, title, price }) => {
+    const handleDelete = async (title) => {
+        await Client.delete(`/listings/delete/${title}`)
+    }
     return (
         <div>
-            <div className='relative'>
+            <div key={title} className='relative'>
                 <div className='grad absolute w-full h-full rounded-b-[1.3rem]'></div>
                 <div className='flex'>
                     <img
