@@ -41,7 +41,8 @@ const App = () => {
             <div>
                 <Listings />
             </div>
-            <Footer />
+            <div>{/* <Footer /> */}</div>
+
             {/* <Route path='*' element={<FourOFour />} /> */}
             {/* </Routes> */}
         </div>

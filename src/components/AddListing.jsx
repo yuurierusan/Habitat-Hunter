@@ -7,7 +7,7 @@ const AddListing = ({
     getAllListings,
     handleChange,
     handleUpload,
-    percentage,
+    percent,
     imageURL,
 }) => {
     let addListing = false
@@ -39,16 +39,16 @@ const AddListing = ({
                 amenities: values.amenities,
             })
             if (res.statusCode === 200) {
-                setValues(true)
+                setNext(true)
                 setListing(res.data)
-                percentage = 100
+                percent = 100
             }
         }
     }
-    if (percentage === 100 && values.price && values.content) addListing = true
+    if (percent === 100 && values.price && values.content) addListing = true
 
     return (
-        <div>
+        <div className=' w-11/12 max-w-[700px] px-10 py-5 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[10%] absolute'>
             <div className='flex justify-center'>
                 <form
                     className='space-y-14 divide-y divide-gray-200 w-1/2'
@@ -56,18 +56,18 @@ const AddListing = ({
                     <div className='space-y-8 divide-y divide-gray-200'>
                         <div className='py-14'>
                             <div>
-                                <h3 className='text-4xl mb-5 font-semibold leading-6 text-gray-900'>
-                                    Add your listing
+                                <h3 className='text-4xl mb-6 font-semibold leading-9 text-gray-900'>
+                                    Give us details about your home
                                 </h3>
                                 <p className='mt-1 text-sm text-gray-500'>
-                                    Fill out the information about your home.
+                                    Fill out form below
                                 </p>
                             </div>
 
                             <div className='mt-6 grid grid-cols-1 gap-y-6'>
                                 <div className='sm:col-span-3'>
                                     <label
-                                        htmlFor='name'
+                                        htmlFor='title'
                                         className='block text-md font-medium leading-6 text-gray-900'>
                                         Title
                                     </label>
@@ -102,7 +102,7 @@ const AddListing = ({
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
-                                        Please Describe your Home.
+                                        Please describe your home
                                     </p>
                                 </div>
 
@@ -126,7 +126,7 @@ const AddListing = ({
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
-                                        What is Your Asking $Price?
+                                        This can always be adjusted later
                                     </p>
                                 </div>
 
@@ -135,9 +135,9 @@ const AddListing = ({
                                         <label
                                             htmlFor='image'
                                             className='block text-md font-medium leading-6 text-gray-900 mr-4'>
-                                            Upload an image of your home
+                                            Upload your images here
                                         </label>
-                                        <p>{percentage}% done</p>
+                                        <p>{percent}% done</p>
                                     </div>
                                     <div className='mt-2'>
                                         <input
@@ -146,7 +146,7 @@ const AddListing = ({
                                             accept='/image/*'
                                         />
                                         <button
-                                            className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#00A2BB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'
+                                            className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'
                                             onClick={handleUpload}>
                                             Upload image
                                         </button>
