@@ -15,6 +15,8 @@ const AddListing = ({
     const [next, setNext] = useState(false)
     const [values, setValues] = useState({
         image: '',
+        icons: '',
+        type: '',
         title: '',
         price: '',
         content: '',
@@ -36,6 +38,8 @@ const AddListing = ({
                 title: values.title,
                 price: values.price,
                 content: values.content,
+                icons: values.icons,
+                type: values.type,
                 amenities: values.amenities,
             })
             if (res.statusCode === 200) {

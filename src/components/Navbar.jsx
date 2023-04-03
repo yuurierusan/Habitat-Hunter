@@ -3,6 +3,7 @@ import { FiMenu, FiSearch } from 'react-icons/fi'
 import { AiOutlineUser } from 'react-icons/ai'
 import { CgDarkMode } from 'react-icons/cg'
 import Login from './Login'
+
 import AddListing from './AddListing'
 import { useState } from 'react'
 
@@ -47,7 +48,7 @@ const Navbar = () => {
                     className='flex shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 text-gray-500 font-bold hover:bg-gray-300 duration-100 ease-in-out cursor-pointer'>
                     Sell Home
                 </p>
-                <div className='flex items-center px-2 py-2 rounded-full hover:bg-gray-300 items-center mx-4 gap-2'>
+                <div className='flex items-center px-2 py-2 rounded-full hover:bg-gray-300 mx-4 gap-2'>
                     <CgDarkMode className='text-[22px] cursor-pointer' />
                 </div>
                 <div
