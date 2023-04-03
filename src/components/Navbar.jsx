@@ -29,18 +29,20 @@ const Navbar = () => {
                         Family Size
                     </button>
                 </div>
-                <div className='bg-red-600 p-2 rounded-full mr-2 cursor-pointer'>
+                <div className='bg-[#00A2BB] p-2 rounded-full mr-2 cursor-pointer'>
                     <FiSearch className=' text-white w-full cursor-pointer' />
                 </div>
             </div>
-            <div className='flex items-center pr-3 font-semibold text-gray-600'>
-                <p className='text-[17px]'>I'm Home</p>
-                <div className='flex items-center mx-4 gap-1'>
+            <div className='flex items-center pr-3 px-4 py-2 font-semibold text-gray-600'>
+                <p className='flex shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 text-gray-500 font-bold hover:bg-gray-300 duration-100 ease-in-out cursor-pointer'>
+                    Sell Home
+                </p>
+                <div className='flex items-center px-2 py-2 rounded-full hover:bg-gray-300 items-center mx-4 gap-2'>
                     <CgDarkMode className='text-[22px] cursor-pointer' />
                 </div>
                 <div
                     onClick={() => togglepopup()}
-                    className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-red-600 text-white font-bold hover:bg-red-300 duration-100 ease-in-out cursor-pointer'>
+                    className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-[#00A2BB] text-white font-bold hover:bg-blue-300 duration-100 ease-in-out cursor-pointer'>
                     <FiMenu className='text-[19px]' />
                     <AiOutlineUser className='text-[22px]' />
                 </div>
