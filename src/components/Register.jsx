@@ -1,6 +1,6 @@
-const Register = ({ toggleRegister, toggleLogin }) => {
+const Register = ({ toggleRegister, toggleLoginForm }) => {
     return (
-        <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[25%] absolute'>
+        <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl z-10 bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[25%] absolute'>
             <h1 className='text-5xl font-semibold'>
                 Welcome to Habitat Hunter
             </h1>
@@ -33,7 +33,7 @@ const Register = ({ toggleRegister, toggleLogin }) => {
                 <div className='mt-8 flex justify-center items-center'>
                     <p className='font-medium text-base'>Have an account?</p>
                     <button
-                        onClick={() => toggleLogin(true)}
+                        onClick={() => toggleLoginForm()}
                         className='ml-2 font-medium text-base text-[#00A2BB]'>
                         Log in
                     </button>

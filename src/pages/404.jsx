@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 const FourOhFour = () => {
     const navigate = useNavigate()
     return (
-        <>
+        <div>
             <main className='relative isolate h-screen'>
                 <img
-                    src='https://https://images.unsplash.com/photo-1633555715049-0c2777ee516e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
+                    src='https://images.unsplash.com/photo-1633555715049-0c2777ee516e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
                     alt='Lonely Place'
                     className='absolute inset-0 -z-10 h-full w-full object-cover object-top'
                 />
@@ -30,7 +30,7 @@ const FourOhFour = () => {
                     </div>
                 </div>
             </main>
-        </>
+        </div>
     )
 }
 

@@ -6,7 +6,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Listings from './components/Listings'
 import Switcher from './components/Switcher'
-
 import FourOFour from './pages/404'
 
 const App = () => {
@@ -36,17 +35,12 @@ const App = () => {
 
     return (
         <div>
+            <Navbar />
             <Routes>
-                <Navbar />
-                <div>
-                    <Listings />
-                </div>
-                <div>
-                    <Footer />
-                </div>
-
+                <Route path='/' element={<Listings />} />
                 <Route path='*' element={<FourOFour />} />
             </Routes>
+            <Footer />
         </div>
     )
 }

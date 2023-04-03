@@ -52,7 +52,7 @@ const AddListing = ({
     if (percent === 100 && values.price && values.content) addListing = true
 
     return (
-        <div className=' w-11/12 max-w-[700px] px-10 py-5 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[10%] absolute'>
+        <div className=' w-11/12 max-w-[700px] px-10 py-5 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[10%] absolute z-10'>
             <div className='flex justify-center'>
                 <form
                     className='space-y-14 divide-y divide-gray-200 w-1/2'

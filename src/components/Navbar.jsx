@@ -1,15 +1,20 @@
 import logo from '../assets/HabitatHunter.png'
 import { FiMenu, FiSearch } from 'react-icons/fi'
-import { AiOutlineUser } from 'react-icons/ai'
+import { BiUserCircle } from 'react-icons/bi'
 import { CgDarkMode } from 'react-icons/cg'
 import Login from './Login'
 
 import AddListing from './AddListing'
 import { useState } from 'react'
+import Register from './Register'
 
 const Navbar = () => {
     const [loginFormState, setLoginFormState] = useState(false)
     const [addListingFormState, setAddListingFormState] = useState(false)
+    const [selectedFormState, setSelectedFormState] = useState(true)
+    const toggleLoginForm = () => {
+        setSelectedFormState(!selectedFormState)
+    }
     const toggleLogin = () => {
         setLoginFormState(!loginFormState)
     }
@@ -18,7 +23,15 @@ const Navbar = () => {
     }
     return (
         <div className='flex justify-between items-center border-b h-[64px]'>
-            {loginFormState && <Login toggleLogin={toggleLogin} />}
+            {selectedFormState && loginFormState && (
+                <Login
+                    toggleLogin={toggleLogin}
+                    toggleLoginForm={toggleLoginForm}
+                />
+            )}
+            {selectedFormState === false && loginFormState && (
+                <Register toggleLoginForm={toggleLoginForm} />
+            )}
             {addListingFormState && (
                 <AddListing toggleAddListing={toggleAddListing} />
             )}
@@ -52,10 +65,13 @@ const Navbar = () => {
                     <CgDarkMode className='text-[22px] cursor-pointer' />
                 </div>
                 <div
-                    onClick={() => toggleLogin()}
+                    onClick={() => {
+                        toggleLogin()
+                        setSelectedFormState(1)
+                    }}
                     className='flex shadow-lg shadow-gray-300 items-center px-4 py-2 border rounded-full gap-2 bg-[#00A2BB] text-white font-bold hover:bg-blue-300 duration-100 ease-in-out cursor-pointer'>
                     <FiMenu className='text-[19px]' />
-                    <AiOutlineUser className='text-[22px]' />
+                    <BiUserCircle className='text-[22px]' />
                 </div>
             </div>
         </div>
