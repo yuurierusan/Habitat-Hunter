@@ -1,7 +1,7 @@
-import { BsTwitter, BsInstagram, BsFacebook } from 'react-icons/bs'
+import { BsTwitter, BsInstagram, BsGithub } from 'react-icons/bs'
 
 const Footer = () => {
-    const icons = [<BsTwitter />, <BsInstagram />, <BsFacebook />]
+    const icons = [<BsTwitter />, <BsInstagram />, <BsGithub />]
     return (
         <div className='bg-white border-t-2 shadow-md  shadow-gray-300 sticky bottom-0 h-20 w-full flex items-center justify-center gap-6'>
             {icons.map((icon, index) => (

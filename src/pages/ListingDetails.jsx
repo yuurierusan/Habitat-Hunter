@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../services/api'
+import Comments from '../components/Comments'
 
 const ListingDetails = () => {
     const { title } = useParams()
@@ -19,12 +20,17 @@ const ListingDetails = () => {
 
     return (
         <div>
-            <img src={listing.image} alt='home' />
-            <h1>{listing.title}</h1>
-            <p>{listing.price}</p>
-            <p>{listing.content}</p>
-            <p>{listing.amenities}</p>
-            <p>{listing.type}</p>
+            <div>
+                <img src={listing.image} alt='home' />
+                <h1>{listing.title}</h1>
+                <p>{listing.price}</p>
+                <p>{listing.content}</p>
+                <p>{listing.amenities}</p>
+                <p>{listing.type}</p>
+            </div>
+            <div>
+                <Comments />
+            </div>
         </div>
     )
 }
