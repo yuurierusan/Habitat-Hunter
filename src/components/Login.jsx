@@ -30,14 +30,14 @@ const Login = ({ togglepopup }) => {
                             Remember Me
                         </label>
                     </div>
-                    <button className='font-medium text-base text-red-600'>
+                    <button className='font-medium text-base text-[#00A2BB]'>
                         Forgot password
                     </button>
                 </div>
                 <div className='mt-8 flex flex-col gap-y-4'>
                     <button
                         onClick={() => togglepopup()}
-                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-red-600 rounded-xl text-white font-bold text-lg'>
+                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                         Sign in
                     </button>
                 </div>
@@ -45,7 +45,7 @@ const Login = ({ togglepopup }) => {
                     <p className='font-medium text-base'>
                         Don't have an account?
                     </p>
-                    <button className='ml-2 font-medium text-base text-red-600'>
+                    <button className='ml-2 font-medium text-base text-[#00A2BB]'>
                         Sign up
                     </button>
                 </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Client, { BASE_URL } from '../services/api'
-import Filters from '../components/Filters'
+import Types from './Types'
 
 const AddListing = ({
     getAllListings,
@@ -99,7 +99,7 @@ const AddListing = ({
                                             id='content'
                                             required
                                             onChange={handleFormChange}
-                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#00A2BB] sm:text-sm sm:leading-6'
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
@@ -123,7 +123,7 @@ const AddListing = ({
                                             id='price'
                                             required
                                             onChange={handleFormChange}
-                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#00A2BB] sm:text-sm sm:leading-6'
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
@@ -147,7 +147,7 @@ const AddListing = ({
                                             accept='/image/*'
                                         />
                                         <button
-                                            className='ml-3 inline-flex justify-center rounded-md bg-red-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600'
+                                            className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#00A2BB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'
                                             onClick={handleUpload}>
                                             Upload image
                                         </button>
@@ -155,9 +155,7 @@ const AddListing = ({
                                 </div>
 
                                 <div className='sm:col-span-6'>
-                                    {next ? (
-                                        <Filters listing={listing} />
-                                    ) : null}
+                                    {next ? <Types listing={listing} /> : null}
                                 </div>
                             </div>
                         </div>
@@ -169,13 +167,13 @@ const AddListing = ({
                                     {!addListing ? (
                                         <button
                                             type='submit'
-                                            className='ml-3 inline-flex justify-center rounded-md bg-slate-400 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600'>
+                                            className='ml-3 inline-flex justify-center rounded-md bg-slate-400 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#00A2BB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'>
                                             Next
                                         </button>
                                     ) : (
                                         <button
                                             type='submit'
-                                            className='ml-3 inline-flex justify-center rounded-md bg-red-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600'>
+                                            className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#00A2BB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'>
                                             Next
                                         </button>
                                     )}
@@ -186,7 +184,7 @@ const AddListing = ({
                                         getAllListings()
                                         navigate('/')
                                     }}
-                                    className='ml-3 inline-flex justify-center rounded-md bg-red-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600'>
+                                    className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'>
                                     Done
                                 </button>
                             )}
