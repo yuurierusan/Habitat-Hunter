@@ -2,7 +2,7 @@ import Axios from 'axios'
 
 export const BASE_URL = 'http://127.0.0.1:5000'
 
-const Client = Axios.create({ baseURL: BASE_URL })
+export const Client = Axios.create({ baseURL: BASE_URL })
 
 Client.interceptors.request.use(
     (config) => {
@@ -17,4 +17,5 @@ Client.interceptors.request.use(
         Promise.reject(e)
     }
 )
+
 export default Client

@@ -32,4 +32,5 @@ const Listing = ({ image, title, price, creation_date }) => {
         </div>
     )
 }
+
 export default Listing

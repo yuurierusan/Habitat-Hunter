@@ -34,4 +34,5 @@ const Switcher = () => {
         </>
     )
 }
+
 export default Switcher

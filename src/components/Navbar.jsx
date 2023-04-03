@@ -78,4 +78,5 @@ const Navbar = ({ setUser }) => {
         </div>
     )
 }
+
 export default Navbar

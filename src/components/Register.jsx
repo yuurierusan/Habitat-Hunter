@@ -114,4 +114,5 @@ const Register = ({ toggleRegister, toggleLoginForm }) => {
         </div>
     )
 }
+
 export default Register

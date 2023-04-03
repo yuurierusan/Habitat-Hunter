@@ -214,4 +214,5 @@ const AddListing = ({
         </div>
     )
 }
+
 export default AddListing

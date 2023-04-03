@@ -34,5 +34,4 @@ const ListingDetails = () => {
         </div>
     )
 }
-
 export default ListingDetails
