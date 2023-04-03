@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import Client, { BASE_URL } from '../services/api'
 import Types from './Types'
+import { storage } from '../firebase'
+import { ref, uploadBytes } from 'firebase/storage'
+import { v4 } from 'uuid'
 
 const AddListing = ({
     toggleAddListing,
     getAllListings,
-    handleUpload,
     percent,
     imageURL,
 }) => {
     let addListing = false
+    const [imageUpload, setImageUpload] = useState(null)
     const [listing, setListing] = useState({})
     const [next, setNext] = useState(false)
     const [values, setValues] = useState({
@@ -21,6 +24,15 @@ const AddListing = ({
         content: '',
         amenities: '',
     })
+    const uploadImage = async () => {
+        if (imageUpload == null) return
+
+        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`)
+        const snapshot = await uploadBytes(imageRef, imageUpload)
+        const url = await getDownloadURL(snapshot.ref)
+
+        setImageList((prev) => [...prev, url])
+    }
 
     const handleFormChange = (e) => {
         setValues({
@@ -154,7 +166,7 @@ const AddListing = ({
                                             accept='/image/*'
                                         />
                                         <button
-                                            onClick={handleUpload}
+                                            onClick={() => uploadImage()}
                                             className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                                             Upload image
                                         </button>
