@@ -56,7 +56,7 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
                         Welcome to Habitat Hunter
                     </h1>
                     <p className='font-medium text-lg text-gray-500 mt-4'>
-                        Log in or sign up
+                        Log in
                     </p>
                     <div className='mt-8'>
                         <div className='flex flex-col'>

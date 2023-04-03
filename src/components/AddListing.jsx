@@ -5,7 +5,6 @@ import Types from './Types'
 const AddListing = ({
     toggleAddListing,
     getAllListings,
-    handleChange,
     handleUpload,
     percent,
     imageURL,
@@ -77,14 +76,15 @@ const AddListing = ({
                                     </label>
                                     <div className='mt-2'>
                                         <input
-                                            value={values.title}
+                                            className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
+                                            id='title'
                                             type='text'
                                             name='title'
-                                            id='title'
+                                            value={values.title}
                                             required
-                                            autoComplete='given-title'
                                             onChange={handleFormChange}
-                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+                                            autoComplete='given-title'
+                                            placeholder='Title'
                                         />
                                     </div>
                                 </div>
@@ -96,13 +96,16 @@ const AddListing = ({
                                         Description
                                     </label>
                                     <div className='mt-2'>
-                                        <textarea
-                                            value={values.content}
-                                            name='content'
+                                        <input
+                                            className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
                                             id='content'
+                                            type='text'
+                                            name='content'
+                                            value={values.content}
                                             required
                                             onChange={handleFormChange}
-                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#00A2BB] sm:text-sm sm:leading-6'
+                                            autoComplete='given-content'
+                                            placeholder='Description'
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
@@ -118,15 +121,15 @@ const AddListing = ({
                                     </label>
                                     <div className='mt-2'>
                                         <input
-                                            value={values.price}
-                                            type='number'
-                                            step='1'
-                                            min='100_000'
-                                            name='price'
+                                            className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
                                             id='price'
+                                            type='text'
+                                            name='price'
+                                            value={values.price}
                                             required
                                             onChange={handleFormChange}
-                                            className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#00A2BB] sm:text-sm sm:leading-6'
+                                            autoComplete='given-price'
+                                            placeholder='$ 100,000 USD'
                                         />
                                     </div>
                                     <p className='mt-2 text-sm text-gray-500'>
@@ -145,13 +148,14 @@ const AddListing = ({
                                     </div>
                                     <div className='mt-2'>
                                         <input
+                                            className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
                                             type='file'
-                                            onChange={handleChange}
+                                            onChange={handleFormChange}
                                             accept='/image/*'
                                         />
                                         <button
-                                            className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'
-                                            onClick={handleUpload}>
+                                            onClick={handleUpload}
+                                            className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                                             Upload image
                                         </button>
                                     </div>
