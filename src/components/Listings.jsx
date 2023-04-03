@@ -3,12 +3,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '../services/api'
 import { Link } from 'react-router-dom'
+import { storage } from '../firebase'
 import { getDownloadURL, listAll } from 'firebase/storage'
 
 const Listings = () => {
     const [imageList, setImageList] = useState([])
     const [listings, setListings] = useState([])
-    const imageListRef = ref(storage, 'images/')
+    // const imageListRef = ref(storage, 'images/')
     const getListings = async () => {
         const res = await axios.get(`${BASE_URL}/listings`)
         setListings(res.data)
@@ -16,7 +17,7 @@ const Listings = () => {
 
     const loadImageList = async () => {
         await getListings()
-        const res = await listAll(imageListRef)
+        // const res = await listAll(imageListRef)
         for (const itemRef of res.items) {
             const url = await getDownloadURL(itemRef)
             setImageList((prev) => [...prev, url])

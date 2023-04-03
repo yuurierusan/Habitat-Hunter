@@ -16,22 +16,23 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
     }
 
     const handleSubmit = async (e) => {
-        if (e.target.name === 'guest') {
-            try {
-                const payload = await SignInUser({
-                    email: 'guest@habitathunter.com',
-                    password: 'guest',
-                })
-                if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
-                    setError('Looks like your login details are incorrect')
-                } else {
-                    setUser(payload)
-                }
-                toggleLogin()
-            } catch (e) {
-                throw e
-            }
-        } else if (formState.email && formState.password) {
+        // if (e.target.name === 'guest') {
+        //     try {
+        //         const payload = await SignInUser({
+        //             email: 'guest@habitathunter.com',
+        //             password: 'guest',
+        //         })
+        //         if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
+        //             setError('Looks like your login details are incorrect')
+        //         } else {
+        //             setUser(payload)
+        //         }
+        //         toggleLogin()
+        //     } catch (e) {
+        //         throw e
+        //     }
+        // }
+        if (formState.email && formState.password) {
             try {
                 const payload = await SignInUser(formState)
                 if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
@@ -45,7 +46,6 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
             }
         }
         setFormState({ email: '', password: '' })
-        setIsLoading(false)
     }
 
     return (

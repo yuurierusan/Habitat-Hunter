@@ -4,12 +4,13 @@ export const BASE_URL = 'http://127.0.0.1:5000'
 
 const Client = Axios.create({ baseURL: BASE_URL })
 
-Client.request(
+Client.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token')
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }
+        console.log('client request successful')
         return config
     },
     (e) => {

@@ -40,7 +40,7 @@ const AddListing = ({
             [e.target.name]: e.target.value,
         })
     }
-
+    console.log(values)
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (addListing) {
@@ -60,7 +60,7 @@ const AddListing = ({
             }
         }
     }
-    if (percent === 100 && values.price && values.content) addListing = true
+    if (values.price && values.content) addListing = true
 
     return (
         <div className=' w-11/12 max-w-[700px] px-10 py-5 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[10%] absolute z-10'>

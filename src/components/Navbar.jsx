@@ -8,7 +8,7 @@ import AddListing from './AddListing'
 import { useState } from 'react'
 import Register from './Register'
 
-const Navbar = () => {
+const Navbar = ({ setUser }) => {
     const [loginFormState, setLoginFormState] = useState(false)
     const [addListingFormState, setAddListingFormState] = useState(false)
     const [selectedFormState, setSelectedFormState] = useState(true)
@@ -27,6 +27,7 @@ const Navbar = () => {
                 <Login
                     toggleLogin={toggleLogin}
                     toggleLoginForm={toggleLoginForm}
+                    setUser={setUser}
                 />
             )}
             {selectedFormState === false && loginFormState && (

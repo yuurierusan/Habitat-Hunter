@@ -35,7 +35,7 @@ const App = () => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar setUser={setUser} />
             <Routes>
                 <Route path='/' element={<Listings />} />
                 <Route path='*' element={<FourOFour />} />
