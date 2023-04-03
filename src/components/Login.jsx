@@ -1,4 +1,4 @@
-const Login = ({ togglepopup }) => {
+const Login = ({ toggleLogin }) => {
     return (
         <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[25%] absolute'>
             <h1 className='text-5xl font-semibold'>Welcome Back</h1>
@@ -36,7 +36,7 @@ const Login = ({ togglepopup }) => {
                 </div>
                 <div className='mt-8 flex flex-col gap-y-4'>
                     <button
-                        onClick={() => togglepopup()}
+                        onClick={() => toggleLogin()}
                         className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                         Sign in
                     </button>

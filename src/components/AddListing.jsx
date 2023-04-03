@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Client, { BASE_URL } from '../services/api'
 import Types from './Types'
 
 const AddListing = ({
+    toggleAddListing,
     getAllListings,
     handleChange,
     handleUpload,
@@ -11,7 +11,6 @@ const AddListing = ({
     imageURL,
 }) => {
     let addListing = false
-    const navigate = useNavigate()
     const [listing, setListing] = useState({})
     const [next, setNext] = useState(false)
     const [values, setValues] = useState({
@@ -182,7 +181,7 @@ const AddListing = ({
                                 <button
                                     onClick={() => {
                                         getAllListings()
-                                        navigate('/')
+                                        toggleAddListing()
                                     }}
                                     className='ml-3 inline-flex justify-center rounded-md bg-[#00A2BB] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00A2BB]'>
                                     Done

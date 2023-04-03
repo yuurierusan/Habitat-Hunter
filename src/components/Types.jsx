@@ -1,18 +1,15 @@
-import { useState } from 'react'
 import Client, { BASE_URL } from '../services/api'
 import {
     GiFishingBoat,
     GiMineExplosion,
     GiMountainCave,
     GiBeachBucket,
-    GiCity,
-    GiRuralHouse,
+    GiModernCity,
+    GiFarmTractor,
     GiFamilyHouse,
-    GiRetirement,
-    GiVacation,
-    GiLuxury,
-    GiAffordableHousing,
-    GiSmallHouse,
+    GiCommercialAirplane,
+    GiHouse,
+    GiBlockHouse,
 } from 'react-icons/gi'
 import { RiAliensFill } from 'react-icons/ri'
 import { ImKey } from 'react-icons/im'
@@ -27,14 +24,12 @@ const Types = ({ listing }) => {
         { title: 'Forest', icon: <BsFillTreeFill /> },
         { title: 'Mountain', icon: <GiMountainCave /> },
         { title: 'Beach', icon: <GiBeachBucket /> },
-        { title: 'City', icon: <GiCity /> },
-        { title: 'Rural', icon: <GiRuralHouse /> },
+        { title: 'City', icon: <GiModernCity /> },
+        { title: 'Rural', icon: <GiFarmTractor /> },
         { title: 'Family', icon: <GiFamilyHouse /> },
-        { title: 'Retirement', icon: <GiRetirement /> },
-        { title: 'Vacation', icon: <GiVacation /> },
-        { title: 'Luxury', icon: <GiLuxury /> },
-        { title: 'Affordable', icon: <GiAffordableHousing /> },
-        { title: 'Small', icon: <GiSmallHouse /> },
+        { title: 'Vacation', icon: <GiCommercialAirplane /> },
+        { title: 'Affordable', icon: <GiHouse /> },
+        { title: 'Small', icon: <GiBlockHouse /> },
     ]
 }
 
