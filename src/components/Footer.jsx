@@ -24,7 +24,7 @@ const Footer = () => {
         ,
     ]
     return (
-        <div className='bg-white border-t-2 shadow-md  shadow-gray-300 sticky bottom-0 h-20 w-full flex items-center justify-center gap-6'>
+        <footer class='fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600'>
             {icons.map((icon, index) => (
                 <div
                     key={index}
@@ -32,7 +32,7 @@ const Footer = () => {
                     {icon}
                 </div>
             ))}
-        </div>
+        </footer>
     )
 }
 export default Footer
