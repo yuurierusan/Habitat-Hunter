@@ -5,7 +5,7 @@ import { BASE_URL } from '../services/api'
 import { Link } from 'react-router-dom'
 import { storage } from '../firebase'
 import { getDownloadURL, listAll } from 'firebase/storage'
-
+import { GiTrashCan } from 'react-icons/gi'
 const Listings = () => {
     const [imageList, setImageList] = useState([])
     const [listings, setListings] = useState([])

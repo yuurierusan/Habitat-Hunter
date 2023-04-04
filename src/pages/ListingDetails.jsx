@@ -4,14 +4,18 @@ import axios from 'axios'
 import { BASE_URL } from '../services/api'
 import Comments from '../components/Comments'
 
-const ListingDetails = () => {
+const ListingDetails = ({ user }) => {
     const { title } = useParams()
     const [listing, setListing] = useState({})
 
     const getListing = async () => {
-        const res = await axios.get(`${BASE_URL}/listing/${title}`)
-        setListing(res.data)
-        console.log(res.data)
+        try {
+            const res = await axios.get(`${BASE_URL}/listing/${title}`)
+            setListing(res.data)
+            console.log(res)
+        } catch (error) {
+            throw error
+        }
     }
 
     useEffect(() => {
@@ -29,7 +33,7 @@ const ListingDetails = () => {
                 <p>{listing.type}</p>
             </div>
             <div>
-                <Comments />
+                <Comments comments={user.comments} />
             </div>
         </div>
     )

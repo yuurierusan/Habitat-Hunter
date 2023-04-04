@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Listings from './components/Listings'
 import Switcher from './components/Switcher'
 import FourOFour from './pages/404'
+import ListingDetails from './pages/ListingDetails'
 
 const App = () => {
     const [user, setUser] = useState(null)
@@ -26,6 +27,7 @@ const App = () => {
         setUser(user)
     }
 
+    console.log('USER', user)
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
@@ -38,6 +40,10 @@ const App = () => {
             <Navbar setUser={setUser} />
             <Routes>
                 <Route path='/' element={<Listings />} />
+                <Route
+                    path='/listing/:title'
+                    element={<ListingDetails user={user} />}
+                />
                 <Route path='*' element={<FourOFour />} />
             </Routes>
             <Footer />
