@@ -51,7 +51,7 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
     return (
         <div className='flex justify-center items-center min-h-screen z-10'>
             {toggleLogin ? (
-                <div className='w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[25%] absolute'>
+                <div className='w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[20%] absolute z-10'>
                     <h1 className='text-5xl font-semibold'>
                         Welcome to Habitat Hunter
                     </h1>
