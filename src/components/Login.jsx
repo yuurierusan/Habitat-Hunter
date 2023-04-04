@@ -16,22 +16,22 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
     }
 
     const handleSubmit = async (e) => {
-        // if (e.target.name === 'guest') {
-        //     try {
-        //         const payload = await SignInUser({
-        //             email: 'guest@habitathunter.com',
-        //             password: 'guest',
-        //         })
-        //         if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
-        //             setError('Looks like your login details are incorrect')
-        //         } else {
-        //             setUser(payload)
-        //         }
-        //         toggleLogin()
-        //     } catch (e) {
-        //         throw e
-        //     }
-        // }
+        if (e.target.name === 'guest') {
+            try {
+                const payload = await SignInUser({
+                    email: 'guest@habitathunter.com',
+                    password: 'guest',
+                })
+                if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
+                    setError('Looks like your login details are incorrect')
+                } else {
+                    setUser(payload)
+                }
+                toggleLogin()
+            } catch (e) {
+                throw e
+            }
+        }
         if (formState.email && formState.password) {
             try {
                 const payload = await SignInUser(formState)
@@ -108,12 +108,12 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
                         </div>
                         <div className='mt-8 flex flex-col gap-y-4'>
                             <button
-                                onClick={() => handleSubmit()}
+                                onClick={(e) => handleSubmit(e)}
                                 className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                                 Log in
                             </button>
                             <button
-                                onClick={handleSubmit}
+                                onClick={(e) => handleSubmit(e)}
                                 name='guest'
                                 className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
                                 Log in as Guest

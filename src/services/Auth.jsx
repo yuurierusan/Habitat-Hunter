@@ -5,7 +5,7 @@ export const RegisterUser = async (data) => {
         const res = await Client.post('/register', data)
         return res.data.user
     } catch (e) {
-        throw e
+        console.log(e)
     }
 }
 
@@ -15,7 +15,7 @@ export const SignInUser = async (data) => {
         localStorage.setItem('token', res.data.access_token)
         return res.data.user
     } catch (e) {
-        throw e
+        console.log(e)
     }
 }
 
@@ -25,6 +25,6 @@ export const CheckSession = async () => {
         console.log(res)
         return res.data
     } catch (e) {
-        throw e
+        console.log(e)
     }
 }

@@ -24,10 +24,10 @@ const App = () => {
 
     const checkToken = async () => {
         const user = await CheckSession()
+        console.log('CHECK TOKEN USER', user)
         setUser(user)
     }
 
-    console.log('USER', user)
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
@@ -41,7 +41,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Listings />} />
                 <Route
-                    path='/listing/:title'
+                    path='/listing/:id'
                     element={<ListingDetails user={user} />}
                 />
                 <Route path='*' element={<FourOFour />} />

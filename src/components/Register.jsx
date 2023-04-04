@@ -1,7 +1,7 @@
 import { RegisterUser } from '../services/Auth.jsx'
 import { useState } from 'react'
 
-const Register = ({ toggleRegister, toggleLoginForm }) => {
+const Register = ({ toggleLoginForm }) => {
     const initialState = {
         name: '',
         email: '',
