@@ -1,4 +1,4 @@
-import { RegisterUser } from '../services/Auth'
+import { RegisterUser } from '../services/Auth.jsx'
 import { useState } from 'react'
 
 const Register = ({ toggleRegister, toggleLoginForm }) => {
