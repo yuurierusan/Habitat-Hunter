@@ -13,10 +13,10 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
         setError('')
         setFormState({ ...formState, [e.target.id]: e.target.value })
     }
-
-    const handleSubmit = async (e) => {
+    const handleGuestLogin = async (e) => {
         if (e.target.name === 'guest') {
             try {
+                setFormState({ email: '', password: '' })
                 const payload = await SignInUser({
                     email: 'guest@habitathunter.com',
                     password: 'guest',
@@ -31,6 +31,9 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
                 throw e
             }
         }
+    }
+
+    const handleSubmit = async (e) => {
         if (formState.email && formState.password) {
             try {
                 const payload = await SignInUser(formState)
@@ -131,7 +134,7 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
                                     Login
                                 </button>
                                 <button
-                                    onClick={handleSubmit}
+                                    onClick={handleGuestLogin}
                                     name='guest'
                                     type='submit'
                                     className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
