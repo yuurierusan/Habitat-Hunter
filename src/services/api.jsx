@@ -10,7 +10,7 @@ Client.interceptors.request.use(
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }
-        console.log('client request successful')
+
         return config
     },
     (e) => {

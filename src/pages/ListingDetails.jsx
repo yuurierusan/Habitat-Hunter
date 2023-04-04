@@ -15,7 +15,6 @@ const ListingDetails = ({ user }) => {
         try {
             const res = await axios.get(`${BASE_URL}/listing/${id}`)
             setListing(res.data)
-            console.log(res)
         } catch (error) {
             throw error
         }
@@ -34,7 +33,6 @@ const ListingDetails = ({ user }) => {
                 }
             )
             setListing(res.data)
-            console.log(res)
         } catch (error) {
             throw error
         }
@@ -49,7 +47,7 @@ const ListingDetails = ({ user }) => {
                     },
                 }
             )
-            console.log(res)
+
             // Refresh the listing data
             getListing()
         } catch (error) {
