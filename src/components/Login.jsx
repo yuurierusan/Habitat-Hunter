@@ -49,91 +49,99 @@ const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-screen z-10'>
-            {toggleLogin ? (
-                <div className='w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-gray-100 m-auto left-0 right-0 bottom-[20%] absolute z-10'>
-                    <h1 className='text-5xl font-semibold'>
-                        Welcome to Habitat Hunter
-                    </h1>
-                    <p className='font-medium text-lg text-gray-500 mt-4'>
-                        Log in
-                    </p>
-                    <div className='mt-8'>
-                        <div className='flex flex-col'>
-                            <label
-                                htmlFor='email'
-                                className='text-lg font-medium'>
-                                Email
-                            </label>
-                            <input
-                                className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                                id='email'
-                                name='email'
-                                type='email'
-                                value={formState.email}
-                                onChange={handleChange}
-                                autoComplete='email'
-                                required
-                                placeholder='Enter your email'
-                            />
-                        </div>
-                        <div className='flex flex-col mt-4'>
-                            <label className='text-lg font-medium'>
-                                Password
-                            </label>
-                            <input
-                                className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                                id='password'
-                                name='password'
-                                type='password'
-                                value={formState.password}
-                                onChange={handleChange}
-                                autoComplete='current-password'
-                                required
-                                placeholder='Enter your password'
-                            />
-                        </div>
-                        <div className='mt-8 flex justify-between items-center'>
-                            <div>
-                                <input type='checkbox' id='remember' />
-                                <label
-                                    className='ml-2 font-medium text-base'
-                                    htmlFor='remember'>
-                                    Remember me
-                                </label>
-                            </div>
-                            <button className='font-medium text-base text-[#00A2BB]'>
-                                Forgot password
-                            </button>
-                        </div>
-                        <div className='mt-8 flex flex-col gap-y-4'>
-                            <button
-                                onClick={(e) => handleSubmit(e)}
-                                className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
-                                Log in
-                            </button>
-                            <button
-                                onClick={(e) => handleSubmit(e)}
-                                name='guest'
-                                className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-[#00A2BB] rounded-xl text-white font-bold text-lg'>
-                                Log in as Guest
-                            </button>
-                            <div className='mt-8 flex justify-center items-center'>
-                                <p className='font-medium text-base'>
-                                    Don't have an account?
-                                </p>
+        <div>
+            <section className='bg-gray-50 dark:bg-gray-900'>
+                <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0'>
+                    <a
+                        href='#'
+                        className='flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white'>
+                        <img
+                            className='w-8 h-8 mr-2'
+                            src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg'
+                            alt='logo'
+                        />
+                        Welcome Back!
+                    </a>
+                    <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
+                        <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
+                            <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
+                                Log in to your account
+                            </h1>
+                            <form className='space-y-4 md:space-y-6' action='#'>
+                                <div>
+                                    <label
+                                        htmlFor='email'
+                                        className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                                        Your email
+                                    </label>
+                                    <input
+                                        onChange={handleChange}
+                                        value={formState.email}
+                                        type='email'
+                                        name='email'
+                                        id='email'
+                                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                        placeholder='name@company.com'
+                                        required=''
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        htmlFor='password'
+                                        className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                                        Password
+                                    </label>
+                                    <input
+                                        onChange={handleChange}
+                                        value={formState.password}
+                                        type='password'
+                                        name='password'
+                                        id='password'
+                                        placeholder='••••••••'
+                                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                        required=''
+                                    />
+                                </div>
+                                <div className='flex items-start'>
+                                    <div className='flex items-center h-5'>
+                                        <input
+                                            id='terms'
+                                            aria-describedby='terms'
+                                            type='checkbox'
+                                            className='w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800'
+                                            required=''
+                                        />
+                                    </div>
+                                    <div className='ml-3 text-sm'>
+                                        <label
+                                            htmlFor='terms'
+                                            className='font-light text-gray-500 dark:text-gray-300'>
+                                            I'm not a{' '}
+                                            <a
+                                                className='font-medium text-primary-600 hover:underline dark:text-primary-500'
+                                                href='#'>
+                                                robot or AI
+                                            </a>
+                                        </label>
+                                    </div>
+                                </div>
                                 <button
-                                    onClick={() => toggleLoginForm()}
-                                    className='ml-2 font-medium text-base text-[#00A2BB]'>
-                                    Sign up
+                                    onClick={handleSubmit}
+                                    type='submit'
+                                    className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
+                                    Login
                                 </button>
-                            </div>
+                                <button
+                                    onClick={handleSubmit}
+                                    type='submit'
+                                    className='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>
+                                    Login as Guest
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            ) : (
-                <Register toggleLogin={toggleLogin} />
-            )}
+            </section>
         </div>
     )
 }

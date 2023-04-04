@@ -3,9 +3,6 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '../services/api'
 import { Link } from 'react-router-dom'
-import { storage } from '../firebase'
-import { getDownloadURL, listAll } from 'firebase/storage'
-import { GiTrashCan } from 'react-icons/gi'
 
 const Listings = () => {
     const [imageList, setImageList] = useState([])
@@ -16,45 +13,8 @@ const Listings = () => {
         setListings(res.data)
     }
 
-    const loadImageList = async () => {
-        await getListings()
-        // const res = await listAll(imageListRef)
-        // for (const itemRef of res.items) {
-        //     const url = await getDownloadURL(itemRef)
-        //     setImageList((prev) => [...prev, url])
-        // }
-    }
-    const handleDelete = async (id) => {
-        try {
-            const res = await axios.delete(`${BASE_URL}/listings/${id}`)
-            if (res.status === 200) {
-                // Remove the deleted listing from the local state
-                setListings((prevListings) =>
-                    prevListings.filter((listing) => listing._id !== id)
-                )
-            }
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-    const handleEdit = async (listingId) => {
-        const updatedListing = {
-            title: 'New title',
-            content: 'New content',
-            price: 1000,
-            type: 'New type',
-            icon: 'New icon',
-            amenities: 'New amenities',
-        }
-        await axios.put(
-            `${BASE_URL}/listing/update/${listingId}`,
-            updatedListing
-        )
-    }
-
     useEffect(() => {
-        loadImageList()
+        getListings()
     }, [])
 
     return (
@@ -74,10 +34,6 @@ const Listings = () => {
                             })}
                             price={listing.price}
                         />
-                        <GiTrashCan onClick={() => handleDelete(listing._id)} />
-                        <button onClick={() => handleEdit(listing._id)}>
-                            Edit Listing
-                        </button>
                     </Link>
                 ))}
             </div>

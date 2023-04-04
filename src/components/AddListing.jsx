@@ -1,9 +1,5 @@
 import { useState } from 'react'
 import Client, { BASE_URL } from '../services/api'
-// import Types from './Types'
-import { storage } from '../firebase'
-import { ref, uploadBytes } from 'firebase/storage'
-import { v4 } from 'uuid'
 
 const AddListing = ({
     toggleAddListing,

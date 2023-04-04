@@ -1,32 +1,29 @@
-const Listing = ({ image, title, price, creation_date }) => {
+const Listing = ({ image, title, price, content }) => {
     return (
-        <div>
-            <div key={title} className='relative'>
-                <div className='grad absolute w-full h-full rounded-b-[1.3rem]'></div>
-                <div className='flex'>
-                    <img
-                        src={image}
-                        alt=''
-                        className='object-cover rounded-[1.3rem] sm:h-[17rem]  md:h-[13rem] w-full'
-                    />
-                    <div className='absolute text-white font-bold bottom-6 left-6 text-[22px] flex items-center gap-2'>
-                        {title}
-                        <span>&#x2022;</span>
-                        <p className='text-[18px] text-slate-200'>${price}</p>
-                    </div>
-                </div>
-            </div>
-            <div className='pt-3 flex justify-between items-start'>
+        <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+            <div>{image}</div>
+            <div className='p-5'>
                 <div>
-                    <p className='max-w-[17rem] font-semibold text-[17px]'>
+                    <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
                         {title}
-                    </p>
-                    <p className='max-w-[17rem]  text-[16px] -mt-1 text-gray-500'>
-                        {creation_date}
-                    </p>
-                    <p className='max-w-[17rem] font-semibold text-[17px]'>
-                        ${price}
-                    </p>
+                    </h5>
+                </div>
+                <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+                    {content}
+                </p>
+                <div className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>
+                    {price}
+                    <svg
+                        aria-hidden='true'
+                        className='w-4 h-4 ml-2 -mr-1'
+                        fill='currentColor'
+                        viewBox='0 0 20 20'
+                        xmlns='http://www.w3.org/2000/svg'>
+                        <path
+                            fillRule='evenodd'
+                            d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
+                            clipRule='evenodd'></path>
+                    </svg>
                 </div>
             </div>
         </div>

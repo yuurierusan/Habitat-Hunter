@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Listings from './components/Listings'
-import Switcher from './components/Switcher'
+
 import FourOFour from './pages/404'
 import ListingDetails from './pages/ListingDetails'
 
