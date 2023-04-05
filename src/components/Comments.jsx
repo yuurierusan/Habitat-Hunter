@@ -19,7 +19,7 @@ const Comments = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const res = await Client.post(`${BASE_URL}/comment/create`, formValues)
+        const res = await Client.put(`/comment/create`, formValues)
         setFormValues({ title: '', content: '' })
         await props.getListing()
     }

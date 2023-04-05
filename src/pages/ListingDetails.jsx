@@ -13,7 +13,7 @@ const ListingDetails = ({ user }) => {
     const [deleteTitle, setDeleteTitle] = useState('')
     const getListing = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/listing/${id}`)
+            const res = await Client.get(`/listing/${id}`)
             setListing(res.data)
         } catch (error) {
             throw error
@@ -22,7 +22,7 @@ const ListingDetails = ({ user }) => {
     const updateListing = async (newTitle) => {
         try {
             const res = await Client.put(
-                `${BASE_URL}/listing/update/${id}`,
+                `/listing/update/${id}`,
                 {
                     title: newTitle,
                 },
@@ -39,14 +39,11 @@ const ListingDetails = ({ user }) => {
     }
     const handleDelete = async () => {
         try {
-            const res = await Client.delete(
-                `${BASE_URL}/listing/delete/${id}`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
+            const res = await Client.delete(`/listing/delete/${id}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
 
             // Refresh the listing data
             getListing()
@@ -61,7 +58,7 @@ const ListingDetails = ({ user }) => {
 
     const getComments = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/comments`)
+            const res = await Client.get(`/comments`)
             setComments(Object.values(res.data))
         } catch (error) {
             throw error

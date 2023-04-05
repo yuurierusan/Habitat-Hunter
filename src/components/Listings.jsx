@@ -3,13 +3,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { BASE_URL } from '../services/api'
 import { Link } from 'react-router-dom'
-
+import Client from '../services/api'
 const Listings = () => {
     const [imageList, setImageList] = useState([])
     const [listings, setListings] = useState([])
     // const imageListRef = ref(storage, 'images/')
     const getListings = async () => {
-        const res = await axios.get(`${BASE_URL}/listings`)
+        const res = await Client.get(`/listings`)
         setListings(res.data)
     }
 

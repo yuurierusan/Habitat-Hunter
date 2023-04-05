@@ -1,34 +1,15 @@
 import { useState } from 'react'
-import Client, { BASE_URL } from '../services/api'
+import Client from '../services/api'
 
-const AddListing = ({
-    toggleAddListing,
-    getAllListings,
-    percent,
-    imageURL,
-}) => {
-    let addListing = false
-    const [imageUpload, setImageUpload] = useState(null)
+const AddListing = () => {
     const [listing, setListing] = useState({})
-    const [next, setNext] = useState(false)
     const [values, setValues] = useState({
         image: '',
-        icons: '',
-        type: '',
         title: '',
         price: '',
         content: '',
         amenities: '',
     })
-    const uploadImage = async () => {
-        if (imageUpload == null) return
-
-        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`)
-        const snapshot = await uploadBytes(imageRef, imageUpload)
-        const url = await getDownloadURL(snapshot.ref)
-
-        setImageList((prev) => [...prev, url])
-    }
 
     const handleFormChange = (e) => {
         setValues({
@@ -39,24 +20,18 @@ const AddListing = ({
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (addListing) {
-            const res = await Client.put(`${BASE_URL}/listing/create`, {
-                image: imageURL,
+        try {
+            const res = await Client.put(`/listing/create`, {
                 title: values.title,
                 price: values.price,
                 content: values.content,
-                icons: values.icons,
-                type: values.type,
                 amenities: values.amenities,
             })
-            if (res.statusCode === 200) {
-                setNext(true)
-                setListing(res.data)
-                percent = 100
-            }
+            console.log(res.data)
+        } catch (e) {
+            console.error(e)
         }
     }
-    if (values.price && values.content) addListing = true
 
     return (
         <section className='bg-white dark:bg-gray-900'>
@@ -139,7 +114,7 @@ const AddListing = ({
                         <label
                             htmlFor='dropzone-file'
                             className='flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600'>
-                            <div class='flex flex-col items-center justify-center pt-5 pb-6'>
+                            <div className='flex flex-col items-center justify-center pt-5 pb-6'>
                                 <svg
                                     aria-hidden='true'
                                     className='w-10 h-10 mb-3 text-gray-400'
@@ -148,9 +123,9 @@ const AddListing = ({
                                     viewBox='0 0 24 24'
                                     xmlns='http://www.w3.org/2000/svg'>
                                     <path
-                                        stroke-linecap='round'
-                                        stroke-linejoin='round'
-                                        stroke-width='2'
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth='2'
                                         d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12'></path>
                                 </svg>
                                 <p className='mb-2 text-sm text-gray-500 dark:text-gray-400'>
@@ -172,7 +147,7 @@ const AddListing = ({
                     </div>
 
                     <button
-                        onSubmit={handleSubmit}
+                        onClick={handleSubmit}
                         type='submit'
                         className='inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800'>
                         Add Listing
