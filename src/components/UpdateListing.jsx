@@ -3,8 +3,10 @@ import Client from '../services/api'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { storage } from '/firebase'
 import { v4 } from 'uuid'
+import { useNavigate } from 'react-router-dom'
 
-const AddListing = () => {
+const UpdateListing = ({ id }) => {
+    const navigate = useNavigate()
     const [values, setValues] = useState({
         image: '',
         title: '',
@@ -40,14 +42,14 @@ const AddListing = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await Client.put(`/listing/create`, {
+            const res = await Client.put(`/listing/update/${id}`, {
                 image: values.image,
                 title: values.title,
                 price: values.price,
                 content: values.content,
                 amenities: values.amenities,
             })
-            console.log(res.data)
+            navigate(`/`)
         } catch (e) {
             console.error(e)
         }
@@ -154,7 +156,7 @@ const AddListing = () => {
                         onClick={handleSubmit}
                         type='submit'
                         className='inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800'>
-                        Add Listing
+                        Update Listing
                     </button>
                 </form>
             </div>
@@ -162,4 +164,4 @@ const AddListing = () => {
     )
 }
 
-export default AddListing
+export default UpdateListing

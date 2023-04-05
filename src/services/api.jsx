@@ -1,8 +1,8 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-export const BASE_URL = 'http://127.0.0.1:3000'
+export const BASE_URL = 'http://127.0.0.1:8080'
 
-const Client = Axios.create({ baseURL: BASE_URL })
+const Client = axios.create({ baseURL: BASE_URL })
 
 Client.interceptors.request.use(
     (config) => {

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 import Client from '../services/api'
-import { BASE_URL } from '../services/api'
 import Comments from '../components/Comments'
+import { useNavigate } from 'react-router-dom'
+import UpdateListing from '../components/UpdateListing'
 
 const ListingDetails = ({ user }) => {
+    const navigate = useNavigate()
     const { id } = useParams()
+    const [updateFormState, setUpdateFormState] = useState(false)
     const [listing, setListing] = useState({})
     const [comments, setComments] = useState([])
     const [newTitle, setNewTitle] = useState('')
@@ -19,34 +21,21 @@ const ListingDetails = ({ user }) => {
             throw error
         }
     }
-    const updateListing = async (newTitle) => {
-        try {
-            const res = await Client.put(
-                `/listing/update/${id}`,
-                {
-                    title: newTitle,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
-            setListing(res.data)
-        } catch (error) {
-            throw error
-        }
+    const toggleUpdateForm = () => {
+        setUpdateFormState(!updateFormState)
     }
+
     const handleDelete = async () => {
         try {
             const res = await Client.delete(`/listing/delete/${id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                image: '',
+                title: '',
+                price: '',
+                amenities: '',
+                content: '',
             })
-
+            navigate('/')
             // Refresh the listing data
-            getListing()
         } catch (error) {
             throw error
         }
@@ -72,13 +61,21 @@ const ListingDetails = ({ user }) => {
 
     return (
         <div className='p-8'>
+            {updateFormState && (
+                <UpdateListing
+                    id={listing._id}
+                    toggleUpdateForm={toggleUpdateForm}
+                />
+            )}
             <div className='flex flex-col items-center mb-8'>
                 <img src={listing.image} alt='home' className='mb-4' />
                 <h1 className='text-2xl font-bold mb-2'>{listing.title}</h1>
-                <p className='mb-2'>${listing.price} per night</p>
+                <h2 className='text-xl font-bold mb-2'>Asking Price:</h2>
+                <p className='mb-2'>${listing.price}</p>
+                <h2 className='text-xl font-bold mb-2'>Description:</h2>
                 <p className='mb-2'>{listing.content}</p>
+                <h2 className='text-xl font-bold mb-2'>Amenities:</h2>
                 <p className='mb-2'>{listing.amenities}</p>
-                <p className='mb-2'>{listing.type}</p>
             </div>
             <div className='mb-8'>
                 <h2 className='text-xl font-bold mb-2'>Comments:</h2>
@@ -92,25 +89,13 @@ const ListingDetails = ({ user }) => {
                 ))}
             </div>
             <div className='mb-8'>
-                <input
-                    type='text'
-                    placeholder='New Title'
-                    onChange={(e) => setNewTitle(e.target.value)}
-                    className='border border-gray-400 rounded py-2 px-4 mb-2'
-                />
                 <button
-                    onClick={() => updateListing(newTitle)}
+                    onClick={toggleUpdateForm}
                     className='bg-[#00A2BB] hover:bg-blue-300 text-white font-bold py-2 px-4 rounded'>
                     Update Listing
                 </button>
             </div>
             <div className='mb-8'>
-                <input
-                    type='text'
-                    placeholder='Enter title to delete'
-                    onChange={handleInputChange}
-                    className='border border-gray-400 rounded py-2 px-4 mb-2'
-                />
                 <button
                     onClick={handleDelete}
                     className='bg-[#00A2BB] hover:bg-blue-300 text-white font-bold py-2 px-4 rounded'>
