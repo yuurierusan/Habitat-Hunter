@@ -17,6 +17,7 @@ const AddListing = () => {
     const imagesListRef = ref(storage, 'images/')
 
     const [imageURL, setImageURL] = useState([])
+    //function to upload image to firebase
     const uploadFile = async () => {
         if (imageUpload == null) return
 
@@ -30,6 +31,11 @@ const AddListing = () => {
         }
     }
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]
+        setImageUpload(file)
+    }
+
     const handleFormChange = (e) => {
         setValues({
             ...values,
@@ -40,8 +46,11 @@ const AddListing = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            //upload image
+            await uploadFile()
+            //send data to server
             const res = await Client.put(`/listing/create`, {
-                image: values.image,
+                image: imageURL[0],
                 title: values.title,
                 price: values.price,
                 content: values.content,
@@ -141,7 +150,7 @@ const AddListing = () => {
                         id='image'
                         name='image'
                         type='file'
-                        onChange={uploadFile}
+                        onChange={handleFileChange}
                         values={values.image}
                     />
                     <p
