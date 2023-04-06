@@ -138,7 +138,7 @@ const Register = ({ toggleLoginForm }) => {
                                         <label
                                             htmlFor='terms'
                                             className='font-light text-gray-500 dark:text-gray-300'>
-                                            I'm accept the{' '}
+                                            I accept the{' '}
                                             <a
                                                 className='font-medium text-primary-600 hover:underline dark:text-primary-500'
                                                 href='#'>
