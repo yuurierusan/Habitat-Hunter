@@ -2,12 +2,13 @@ import Listing from './Listing'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
-
+import { BASE_URL } from '../services/api'
+import axios from 'axios'
 const Listings = () => {
     const [listings, setListings] = useState([])
 
     const getListings = async () => {
-        const res = await Client.get(`/listings`)
+        const res = await axios.get(`${BASE_URL}/listings`)
         setListings(res.data)
     }
 
