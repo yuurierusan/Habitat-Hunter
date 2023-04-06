@@ -77,7 +77,6 @@ const AddListing = () => {
                             <input
                                 values={values.title}
                                 onChange={handleFormChange}
-                                autoComplete='given-title'
                                 type='text'
                                 name='title'
                                 id='title'
@@ -95,7 +94,6 @@ const AddListing = () => {
                             <input
                                 values={values.amenities}
                                 onChange={handleFormChange}
-                                autoComplete='given-amenities'
                                 type='text'
                                 name='amenities'
                                 id='amenities'

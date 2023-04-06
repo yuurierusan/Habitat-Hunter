@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import UpdateListing from '../components/UpdateListing'
+import AddComment from '../components/AddComments'
 
 const ListingDetails = ({ user }) => {
     const navigate = useNavigate()
@@ -76,10 +77,12 @@ const ListingDetails = ({ user }) => {
                     <div
                         key={comment._id}
                         className='border-b border-gray-300 mb-2 pb-2'>
-                        <h3 className='font-bold'>Title: {comment.title}</h3>
-                        <p>Message: {comment.content}</p>
+                        <h3 className='font-bold'>
+                            {user.name}: {comment.content}
+                        </h3>
                     </div>
                 ))}
+                <AddComment id={listing._id} />
             </div>
             <div className='mb-8'>
                 <button

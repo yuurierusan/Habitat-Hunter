@@ -1,9 +1,8 @@
 import Listing from './Listing'
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { BASE_URL } from '../services/api'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
+
 const Listings = () => {
     const [imageList, setImageList] = useState([])
     const [listings, setListings] = useState([])
