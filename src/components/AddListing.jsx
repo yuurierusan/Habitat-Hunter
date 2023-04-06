@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import Client from '../services/api'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import {
+    ref,
+    uploadBytes,
+    getDownloadURL,
+    uploadBytesResumable,
+} from 'firebase/storage'
 import { storage } from '/firebase'
 import { v4 } from 'uuid'
 
@@ -15,7 +20,7 @@ const AddListing = () => {
 
     const [imageUpload, setImageUpload] = useState(null)
     const imagesListRef = ref(storage, 'images/')
-
+    const [progress, setProgress] = useState(0)
     const [imageURL, setImageURL] = useState([])
     //function to upload image to firebase
     const uploadFile = async () => {
@@ -23,9 +28,16 @@ const AddListing = () => {
 
         const imageRef = ref(storage, `images/${imageUpload.name} ${v4()}`)
         try {
-            const snapshot = await uploadBytes(imageRef, imageUpload)
-            const url = await getDownloadURL(snapshot.ref)
-            setImageURL((prev) => [...prev, url])
+            const snapshot = await uploadBytesResumable(imageRef, imageUpload, {
+                onProgress: (snapshot) => {
+                    const progress = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    )
+                    console.log(`Upload is ${progress}% done`)
+                    //state variable with the percentage value
+                    setProgress(progress)
+                },
+            })
         } catch (error) {
             throw error
         }
@@ -48,6 +60,7 @@ const AddListing = () => {
         try {
             //upload image
             await uploadFile()
+            console.log('image uploaded')
             //send data to server
             const res = await Client.put(`/listing/create`, {
                 image: imageURL[0],
@@ -156,7 +169,7 @@ const AddListing = () => {
                         id='file_input_help'>
                         SVG, PNG, JPG or GIF (MAX. 800x400px).
                     </p>
-
+                    {progress > 0 && <p>Uploading: {progress}%</p>}
                     <button
                         onClick={handleSubmit}
                         type='submit'
