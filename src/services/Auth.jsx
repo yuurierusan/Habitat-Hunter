@@ -21,7 +21,7 @@ export const SignInUser = async (data) => {
 
 export const checkSession = async () => {
     try {
-        const res = await Client.get('auth/session')
+        const res = await Client.get('/auth/session')
         return res
     } catch (e) {
         throw e

@@ -11,8 +11,6 @@ const ListingDetails = ({ user }) => {
     const [updateFormState, setUpdateFormState] = useState(false)
     const [listing, setListing] = useState({})
     const [comments, setComments] = useState([])
-    const [newTitle, setNewTitle] = useState('')
-    const [deleteTitle, setDeleteTitle] = useState('')
     const getListing = async () => {
         try {
             const res = await Client.get(`/listing/${id}`)
@@ -39,10 +37,6 @@ const ListingDetails = ({ user }) => {
         } catch (error) {
             throw error
         }
-    }
-
-    const handleInputChange = (event) => {
-        setDeleteTitle(event.target.value)
     }
 
     const getComments = async () => {

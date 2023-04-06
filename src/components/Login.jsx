@@ -1,7 +1,7 @@
 import { SignInUser } from '../services/Auth'
 import { useState } from 'react'
 
-const Login = ({ toggleLogin, toggleLoginForm, setUser }) => {
+const Login = ({ toggleLogin, setUser }) => {
     const intialState = {
         email: '',
         password: '',
