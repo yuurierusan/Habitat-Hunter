@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom'
 import Client from '../services/api'
 
 const Listings = () => {
-    const [imageList, setImageList] = useState([])
     const [listings, setListings] = useState([])
-    // const imageListRef = ref(storage, 'images/')
+
     const getListings = async () => {
         const res = await Client.get(`/listings`)
         setListings(res.data)
@@ -27,10 +26,8 @@ const Listings = () => {
                         rel='noopener noreferrer'>
                         <Listing
                             key={listing._id}
+                            image={listing.image}
                             title={listing.title}
-                            image={imageList.map((url) => {
-                                return <img srv={url} alt='homes' />
-                            })}
                             price={listing.price}
                         />
                     </Link>
