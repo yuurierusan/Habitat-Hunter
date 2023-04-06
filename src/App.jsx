@@ -1,4 +1,4 @@
-import { CheckSession } from './services/Auth'
+import { checkSession } from './services/Auth'
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -23,9 +23,9 @@ const App = () => {
     }
 
     const checkToken = async () => {
-        const user = await CheckSession()
-
-        setUser(user)
+        const user = await checkSession()
+        if (user === 'User not authenticated') return
+        setUser(user.data)
     }
 
     useEffect(() => {

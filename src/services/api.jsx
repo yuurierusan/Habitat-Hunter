@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://127.0.0.1:8080'
+export const BASE_URL = 'http://127.0.0.1:5000'
 
 const Client = axios.create({ baseURL: BASE_URL })
 
@@ -10,7 +10,6 @@ Client.interceptors.request.use(
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }
-
         return config
     },
     (e) => {
