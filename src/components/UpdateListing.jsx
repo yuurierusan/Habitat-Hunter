@@ -43,7 +43,7 @@ const UpdateListing = ({ id }) => {
         e.preventDefault()
         try {
             const res = await Client.put(`/listing/update/${id}`, {
-                image: values.image,
+                image: imageURL[0],
                 title: values.title,
                 price: values.price,
                 content: values.content,

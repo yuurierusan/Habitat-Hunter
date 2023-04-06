@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Client from '../services/api'
-import Comments from '../components/Comments'
 import { useNavigate } from 'react-router-dom'
 import UpdateListing from '../components/UpdateListing'
 
@@ -42,7 +41,7 @@ const ListingDetails = ({ user }) => {
     const getComments = async () => {
         try {
             const res = await Client.get(`/comments`)
-            setComments(Object.values(res.data))
+            setComments(Object.values(res.data[1]))
         } catch (error) {
             throw error
         }
@@ -77,8 +76,8 @@ const ListingDetails = ({ user }) => {
                     <div
                         key={comment._id}
                         className='border-b border-gray-300 mb-2 pb-2'>
-                        <h3 className='font-bold'>{comment.title}</h3>
-                        <p>{comment.content}</p>
+                        <h3 className='font-bold'>Title: {comment.title}</h3>
+                        <p>Message: {comment.content}</p>
                     </div>
                 ))}
             </div>
