@@ -42,7 +42,7 @@ const UpdateListing = ({ id }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await Client.put(`/listing/update/${id}`, {
+            const res = await Client.put(`/api/listings/update/${id}`, {
                 image: imageURL[0],
                 title: values.title,
                 price: values.price,

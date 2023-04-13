@@ -16,7 +16,7 @@ const AddComment = ({ id }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await Client.put('/comment/create', {
+            const res = await Client.put('/api/comments/create', {
                 content: values.content,
             })
             console.log(res.data)

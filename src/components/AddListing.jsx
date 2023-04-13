@@ -62,7 +62,7 @@ const AddListing = () => {
             await uploadFile()
             console.log('image uploaded')
             //send data to server
-            const res = await Client.put(`/listing/create`, {
+            const res = await Client.put(`/api/listings/create`, {
                 image: imageURL[0],
                 title: values.title,
                 price: values.price,
